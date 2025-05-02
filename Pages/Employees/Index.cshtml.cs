@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NET_9_Business_App_MVC.Models;
+using NET_9_Business_App_Razor_Pages.Models;
 
 namespace NET_9_Business_App_Razor_Pages.Pages.Employees
 {
@@ -9,7 +9,7 @@ namespace NET_9_Business_App_Razor_Pages.Pages.Employees
         #region EmployeeModel
 
         [BindProperty(SupportsGet = true)]
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
         [BindProperty(SupportsGet = true)]
         public string? EmployeeFirstName { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -21,7 +21,7 @@ namespace NET_9_Business_App_Razor_Pages.Pages.Employees
         [BindProperty(SupportsGet = true)]
         public double? EmployeeSalary { get; set; }
 
-        public IndexModel(int employeeId, string employeeFirstName, string employeeLastName, string employeePosition, string employeeDepartment, double employeeSalary)
+        /*public IndexModel(int? employeeId, string? employeeFirstName, string? employeeLastName, string? employeePosition, string? employeeDepartment, double? employeeSalary)
         {
             EmployeeId = employeeId;
             EmployeeFirstName = employeeFirstName;
@@ -29,7 +29,7 @@ namespace NET_9_Business_App_Razor_Pages.Pages.Employees
             EmployeePosition = employeePosition;
             EmployeeDepartment = employeeDepartment;
             EmployeeSalary = employeeSalary;
-        }
+        }*/
 
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using NET_9_Business_App_Razor_Pages.Pages.Employees;
+﻿using NET_9_Business_App_Razor_Pages.Models;
+using NET_9_Business_App_Razor_Pages.Pages.Employees;
 using System.ComponentModel.DataAnnotations;
 
 namespace NET_9_Business_App_MVC.Models

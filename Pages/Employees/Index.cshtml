@@ -1,4 +1,5 @@
-﻿@page "/Employees/Index"
+﻿@page "{EmployeeId:int?}"
+
 @model NET_9_Business_App_Razor_Pages.Pages.Employees.IndexModel
 @{
 }
@@ -14,3 +15,17 @@
 <div class="center">
     <h3 style="color:dodgerblue;">Employees Page</h3>
 </div>
+<br />
+<form method="post" action="/employees/edit/@Model.EmployeeId?handler=save">
+    @Html.AntiForgeryToken();
+    <input type="hidden" name="EmployeeId" value="@Model.EmployeeId" />
+
+    <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
+</form>
+
+<form method="post" action="/employees/edit/@Model.EmployeeId?handler=delete">
+    @Html.AntiForgeryToken();
+    <input type="hidden" name="EmployeeId" value="@Model.EmployeeId" />
+
+    <button type="submit" class="btn btn-outline-primary btn-sm">Delete</button>
+</form>

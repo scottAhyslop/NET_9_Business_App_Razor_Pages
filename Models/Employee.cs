@@ -1,4 +1,4 @@
-﻿namespace NET_9_Business_App_MVC.Models
+﻿namespace NET_9_Business_App_Razor_Pages.Models
 {
     public class Employee
     {
