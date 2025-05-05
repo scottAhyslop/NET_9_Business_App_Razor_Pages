@@ -2,14 +2,10 @@
 <!--note Employee is bound to Employee InputModel, except EmployeeId param-->
 @model NET_9_Business_App_Razor_Pages.Pages.EmployeesModel
 @{
+    Layout = "_Layout";
 }
 <style>
-    body {
-    text-align: center;
-    margin: 1rem auto;
-    background-color: #222;
-    color: whitesmoke;
-    }
+
     label{
         display: inline-block;
         width: 12.5rem;
@@ -22,7 +18,7 @@
 <h3 style="color:mediumseagreen;">Employee Details</h3>
 
 <h4>EmployeeId: @Model.EmployeeId</h4>
-
+<br />
 <!--error check and display-->
 <!--null check first-->
 @if(Model is not null && 
@@ -41,7 +37,7 @@
 }<!--end error check and display module-->
     
     <!--form body-->
-    <div id="form" style="text-align:left;margin-left:28%;">
+    <div id="form" style="text-align:left;margin-left:28%;padding-bottom:1.5rem;">
         <form method="post" action="/employees/edit/@Model!.EmployeeId?handler=save" >
         @Html.AntiForgeryToken()
         <input type="hidden" name="employee.EmployeeId" value="@Model.EmployeeId" />
@@ -66,8 +62,7 @@
             <input type="text" name="employee.EmployeeSalary" value="@Model.Employee?.EmployeeSalary" />
         </p>
         <!--save button-->
-        <button type="submit" class="btn btn-outline-success btn-sm" style="color:forestgreen
-;">Save</button>
+        <button type="submit" class="btn btn-outline-success btn-sm" style="width:3.5rem; margin-bottom:0.75rem;">Save</button>
 
     </form>
 
@@ -75,7 +70,7 @@
     <form method="post" action="/employees/edit/@Model.EmployeeId?handler=delete">
     @Html.AntiForgeryToken()
     <input type="hidden" name="EmployeeId" value="@Model.EmployeeId" />
-    <button type="submit" class="btn btn-outline-danger btn-sm" style="color:orangered;">
+    <button type="submit" class="btn btn-outline-danger btn-sm" >
         Delete
     </button>
 
