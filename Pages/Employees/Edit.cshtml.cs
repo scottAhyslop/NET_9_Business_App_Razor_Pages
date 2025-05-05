@@ -26,22 +26,25 @@ namespace NET_9_Business_App_Razor_Pages.Pages
             public List<string>? ErrorMessages { get; set; }
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return Page();
         }
 
-        public void OnPostSave()
+        public IActionResult OnPostSave()
         {
             if (!ModelState.IsValid)
             {
                 this.Employee!.ErrorMessages = ShowErrors();
+                return Page();
             }
             //do something when the state is valid
+            return RedirectToPage("Index");
         }
 
-        public void OnPostDelete()
+        public IActionResult OnPostDelete()
         {
-            
+            return RedirectToPage("Index");
         }
         //Error display method
         private List<string> ShowErrors() 
