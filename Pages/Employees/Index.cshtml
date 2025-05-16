@@ -1,14 +1,11 @@
 ﻿@page "{EmployeeId:int?}"
 
 @model NET_9_Business_App_Razor_Pages.Pages.Employees.IndexModel
-
+@{
+    Layout = "_Layout";
+}
 
 <div class="center">
     @section header_title {<h3 style="color:dodgerblue;">Employees Page</h3>}
-    <br />
-    @await Component.InvokeAsync("EmployeeViewComponent", new { message = "Hello from Employees Page" })
 </div>
-@section messagebar{
-    <p>This is a default message</p>
-}
 <br />
