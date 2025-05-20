@@ -1,11 +1,12 @@
 ﻿@page "{EmployeeId:int?}"
 
 @model NET_9_Business_App_Razor_Pages.Pages.Employees.EmployeeModel
-@{
-    Layout = "_Layout";
-}
 
 <div class="center">
     @section header_title {<h3 style="color:dodgerblue;">Employees Page</h3>}
+    @section footer_message {
+        <h4 style="color:lightgray;text-decoration:none;">Employee Management System</h4>
+        <a style="text-decoration:none;" href="/">Return to Home</a>
+    }
 </div>
 <br />

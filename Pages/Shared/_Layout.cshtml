@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html><!--HTML5 Universal doc declaration-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Something, Something</title>
+    <title>Employee MS</title>
     <!--b.s. imports-->
     @{
         string
@@ -11,8 +11,9 @@
     <!--b.s. css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous"><!--end css import-->
     <!--custom CSS import-->
-    <link href="~/Pages/Shared/styles.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+    <link href="~/Pages/Shared/styles.css"
+          rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
     
 </head>
 
@@ -51,9 +52,11 @@
         @RenderSection("header_title", required:false)
     </div>
     <div class="center">
+        
         <div class="container container-fluid" style="padding-top:1rem;">
             @RenderBody()<!--Main Html holder for Views-->
         </div><!--end wrapper container-->
+        @RenderSection("footer_message", required: false)
     </div>
     <!--b.s. js import (last cos it takes longest;)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script><!--end javascript import-->

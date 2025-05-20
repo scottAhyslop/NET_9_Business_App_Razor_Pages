@@ -1,9 +1,7 @@
 ﻿@page "{EmployeeId:int?}"
 <!--note Employee is bound to Employee InputModel, except EmployeeId param-->
 @model NET_9_Business_App_Razor_Pages.Pages.EditModel
-@{
-    Layout = "_Layout";
-}
+
 <style>
 
     label{
@@ -77,4 +75,8 @@
     @Html.AntiForgeryToken()
     <button type="submit" id="delete-employee" class="btn btn-outline-danger btn-sm">Delete</button>
     </form>
+    @section footer_message {
+        <h4 style="color:lightgray;text-decoration:none;">Employee Management System</h4>
+        <a href="~/Pages/Employees/Index.cshtml">Return to Home</a>
+    }
 </div><!--end #form -->
