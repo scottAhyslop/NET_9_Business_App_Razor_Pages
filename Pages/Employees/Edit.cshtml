@@ -1,6 +1,6 @@
 ﻿@page "{EmployeeId:int?}"
 <!--note Employee is bound to Employee InputModel, except EmployeeId param-->
-@model NET_9_Business_App_Razor_Pages.Pages.EmployeesModel
+@model NET_9_Business_App_Razor_Pages.Pages.EditModel
 @{
     Layout = "_Layout";
 }
@@ -22,13 +22,13 @@
 <!--error check and display-->
 <!--null check first-->
 @if(Model is not null && 
-    Model.Employee is not null && 
-        Model.Employee.ErrorMessages is not null)
+    Model.EmployeeViewModel is not null && 
+        Model.EmployeeViewModel.ErrorMessages is not null)
 {
     <h4 style="color:orangered;">Error Messages:</h4>
     <div id="errorMessageBoard" style="margin-left: 28%; padding:1rem; border:2px dotted red; width:50%;">
         <ul>
-            @foreach (var errorMessage in Model.Employee.ErrorMessages)
+            @foreach (var errorMessage in Model.EmployeeViewModel.ErrorMessages)
             {
                 <li style="color:orangered;">@errorMessage</li>
             }
@@ -37,42 +37,44 @@
 }<!--end error check and display module-->
     
     <!--form body-->
-    <div id="form" style="text-align:left;margin-left:28%;padding-bottom:1.5rem;">
-        <form method="post" action="/employees/edit/@Model!.EmployeeId?handler=save" >
-        @Html.AntiForgeryToken()
-        <input type="hidden" name="employee.EmployeeId" value="@Model.EmployeeId" />
-        <p>
-            <label>Employee First Name:  </label>
-            <input type="text" name="employee.EmployeeFirstName" value="@Model.Employee?.EmployeeFirstName" />
-        </p>
-        <p>
-            <label>Employee Last Name:  </label>
-            <input type="text" name="employee.EmployeeLastName" value="@Model.Employee?.EmployeeLastName" />
-        </p>
-        <p>
-            <label>Employee Department:  </label>
-            <input type="text" name="employee.EmployeeDepartment" value="@Model.Employee?.EmployeeDepartment" />
-        </p>
-        <p>
-            <label>Employee Position:  </label>
-            <input type="text" name="employee.EmployeePosition" value="@Model.Employee?.EmployeePosition" />
-        </p>
-        <p>
-            <label>Employee Salary:  </label>
-            <input type="text" name="employee.EmployeeSalary" value="@Model.Employee?.EmployeeSalary" />
-        </p>
-        <!--save button-->
-        <button type="submit" class="btn btn-outline-success btn-sm" style="width:3.5rem; margin-bottom:0.75rem;">Save</button>
-
-    </form>
-
-<!--delete button-->
-    <form method="post" action="/employees/edit/@Model.EmployeeId?handler=delete">
+<div id="form" style="text-align:left;margin-left:28%;padding-bottom:1.5rem;">
+    <form method="post" action="/employees/edit/@Model!.EmployeeId?handler=save">
     @Html.AntiForgeryToken()
-    <input type="hidden" name="EmployeeId" value="@Model.EmployeeId" />
-    <button type="submit" class="btn btn-outline-danger btn-sm" >
-        Delete
-    </button>
+    <input type="hidden" name="employee.EmployeeId" value="@Model.EmployeeId" />
+    <!--Employee First Name-->
+    <p>
+        <label>Employee First Name:  </label>
+        <input type="text" name="employee.EmployeeFirstName" value="@Model.EmployeeViewModel?.EmployeeFirstName" />
+    </p>
+    <!--Employee Last Name-->
+    <p>
+        <label>Employee Last Name:  </label>
+        <input type="text" name="employee.EmployeeLastName" value="@Model.EmployeeViewModel?.EmployeeLastName" />
+    </p>
+    <!--Employee Position-->
+    <p>
+        <label>Employee Position:  </label>
+        <input type="text" name="employee.EmployeePosition" value="@Model.EmployeeViewModel?.EmployeePosition" />
+    </p>
+    <!--Employee Department-->
+    <p>
+        <label>Employee Department:  </label>
+        <input type="text" name="employee.EmployeeDepartment" value="@Model.EmployeeViewModel?.EmployeeDepartment" />
+    </p>
+    <!--Employee Salary-->
+    <p>
+        <label>Employee Salary:  </label>
+        <input type="text" name="employee.EmployeeSalary" value="@Model.EmployeeViewModel?.EmployeeSalary" />
+    </p>
+     <!--save button-->
+     <button type="submit" class="btn btn-outline-success btn-sm" style="width:3.5rem; margin-bottom:0.75rem;">Save</button>
+    </form><!--end main form-->
 
-</form>
-</div>
+    <!--delete button-->
+    <form name="deleteEmployeeForm"
+    method="post"
+    action="/employees/edit/@Model.EmployeeViewModel?.EmployeeId?handler=DeleteEmployee">
+    @Html.AntiForgeryToken()
+    <button type="submit" id="delete-employee" class="btn btn-outline-danger btn-sm">Delete</button>
+    </form>
+</div><!--end #form -->

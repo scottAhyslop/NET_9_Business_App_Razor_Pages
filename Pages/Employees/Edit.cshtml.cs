@@ -1,41 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NET_9_Business_App_Razor_Pages.ViewModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace NET_9_Business_App_Razor_Pages.Pages
 {
 
-    public class EmployeesModel : PageModel
+    public class EditModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
         public int? EmployeeId { get; set; }
 
         [BindProperty]
-        public InputModel? Employee { get; set; }
+        public EmployeeViewModel? EmployeeViewModel { get; set; }
 
-        public class InputModel
-        {
-            public int? EmployeeId { get; set; }
-            [Required(ErrorMessage = "First name is required.")]
-            public string? EmployeeFirstName { get; set; }
-            [Required(ErrorMessage = "Last name is required.")]
-            public string? EmployeeLastName { get; set; }
-            public string? EmployeePosition { get; set; }
-            public string? EmployeeDepartment { get; set; }
-            public double? EmployeeSalary { get; set; }
-            public List<string>? ErrorMessages { get; set; }
-        }
+        
 
-        public IActionResult OnGet()
+        public void OnGet(int EmployeeId)
         {
-            return Page();
+            this.EmployeeViewModel = new EmployeeViewModel();
+            //this.EmployeeViewModel.Empl
         }
 
         public IActionResult OnPostSave()
         {
             if (!ModelState.IsValid)
             {
-                this.Employee!.ErrorMessages = ShowErrors();
+                this.EmployeeViewModel!.ErrorMessages = ShowErrors();
                 return Page();
             }
             //do something when the state is valid

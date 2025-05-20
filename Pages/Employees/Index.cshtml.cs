@@ -1,25 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NET_9_Business_App_Razor_Pages.Models;
+using NET_9_Business_App_RazorPages.Models;
 
 namespace NET_9_Business_App_Razor_Pages.Pages.Employees
 {
-    public class IndexModel : PageModel //Employee Display page
+    public class EmployeeModel : PageModel //Employee Display page
     {
         #region EmployeeModel
 
         [BindProperty(SupportsGet = true)]
         public int? EmployeeId { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string? EmployeeFirstName { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string? EmployeeLastName { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string? EmployeePosition { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string? EmployeeDepartment { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public double? EmployeeSalary { get; set; }
+        
 
         /*public IndexModel(int? employeeId, string? employeeFirstName, string? employeeLastName, string? employeePosition, string? employeeDepartment, double? employeeSalary)
         {

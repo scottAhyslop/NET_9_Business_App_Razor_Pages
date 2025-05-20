@@ -1,4 +1,7 @@
-﻿namespace NET_9_Business_App_MVC.Models
+﻿using NET_9_Business_App_Razor_Pages.Models;
+using NET_9_Business_App_RazorPages.Models;
+
+namespace NET_9_Business_App_MVC.Models
 {
     public class Customer
     {
@@ -14,7 +17,7 @@
         public string? CustomerNotes { get; set; }
         public string? CustomerSince { get; set; }
         public List<InventoryInvoice>? CustomerInvoices { get; set; }
-        public List<Department>? CustomerDepartments { get; set; }
+        public List<Employee>? CustomerDepartments { get; set; }
     }
     public class CustomerList
     {
